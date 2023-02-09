@@ -1,0 +1,49 @@
+1. 	a - unsigned int
+	b - float (%.2d)
+	c - char
+	d - unsigned int
+2. Число перепаливает за 21 миллиард
+3. int_...
+4. 	a - возврат char
+	b - short
+	c - float %.2d
+	d - hex %0d
+	e - double
+5. #include <stdio.h>
+	int main(void)
+	{
+		float g, tax, rate;
+		g = 2.0e21;
+		rate = 0.96;
+		tax = rate * g;
+		printf("%d", tax);
+		return (0);
+	}
+6. 	a - short %
+	b - %x
+	c - char %c
+	d - e %e
+	e - char[] %s
+	f - float %.1f
+	a - long double %ld
+	b - float %f
+	c - e %e
+7.
+8. d d  ---- f c
+9. 
+10. 
+	#include <stdio.h>
+	
+	int main(void)
+	{
+		int legs;
+
+		printf("How?\n");
+		scanf("%d", &legs);
+		printf("%d", legs / 4);
+		return (0);
+	}
+
+11. перенос строки, экранирование черты, экранирование знака, табуляция
+
+
