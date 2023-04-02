@@ -1,0 +1,46 @@
+==227047== Memcheck, a memory error detector
+==227047== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==227047== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==227047== Command: ./compile
+==227047== Parent PID: 163685
+==227047== 
+==227047== Conditional jump or move depends on uninitialised value(s)
+==227047==    at 0x48D49A8: __printf_buffer (vfprintf-process-arg.c:58)
+==227047==    by 0x48D52A1: __vfprintf_internal (vfprintf-internal.c:1459)
+==227047==    by 0x48CAEAE: printf (printf.c:33)
+==227047==    by 0x109369: pprint (ex2.c:36)
+==227047==    by 0x1091E5: main (ex2.c:12)
+==227047== 
+==227047== Use of uninitialised value of size 8
+==227047==    at 0x48CA12B: _itoa_word (_itoa.c:177)
+==227047==    by 0x48D3ABD: __printf_buffer (vfprintf-process-arg.c:155)
+==227047==    by 0x48D52A1: __vfprintf_internal (vfprintf-internal.c:1459)
+==227047==    by 0x48CAEAE: printf (printf.c:33)
+==227047==    by 0x109369: pprint (ex2.c:36)
+==227047==    by 0x1091E5: main (ex2.c:12)
+==227047== 
+==227047== Conditional jump or move depends on uninitialised value(s)
+==227047==    at 0x48CA13C: _itoa_word (_itoa.c:177)
+==227047==    by 0x48D3ABD: __printf_buffer (vfprintf-process-arg.c:155)
+==227047==    by 0x48D52A1: __vfprintf_internal (vfprintf-internal.c:1459)
+==227047==    by 0x48CAEAE: printf (printf.c:33)
+==227047==    by 0x109369: pprint (ex2.c:36)
+==227047==    by 0x1091E5: main (ex2.c:12)
+==227047== 
+==227047== Conditional jump or move depends on uninitialised value(s)
+==227047==    at 0x48D3B09: __printf_buffer (vfprintf-process-arg.c:186)
+==227047==    by 0x48D52A1: __vfprintf_internal (vfprintf-internal.c:1459)
+==227047==    by 0x48CAEAE: printf (printf.c:33)
+==227047==    by 0x109369: pprint (ex2.c:36)
+==227047==    by 0x1091E5: main (ex2.c:12)
+==227047== 
+==227047== 
+==227047== HEAP SUMMARY:
+==227047==     in use at exit: 0 bytes in 0 blocks
+==227047==   total heap usage: 6 allocs, 6 frees, 2,132 bytes allocated
+==227047== 
+==227047== All heap blocks were freed -- no leaks are possible
+==227047== 
+==227047== Use --track-origins=yes to see where uninitialised values come from
+==227047== For lists of detected and suppressed errors, rerun with: -s
+==227047== ERROR SUMMARY: 60 errors from 4 contexts (suppressed: 0 from 0)
