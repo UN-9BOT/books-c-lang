@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
+#include <time.h> 
+#include <unistd.h> // TODO:
 char *generate(int mask);
 
 typedef struct Bio bio;
 typedef struct Med med;
 void prStr(med arr);
-
 
 struct Bio {
     char *name;
@@ -20,6 +20,7 @@ struct Med {
 };
 
 int main(void) {
+    sleep(10);
     med *arr = malloc(sizeof(med) * 5);
     if (arr != NULL) {
         for (int i = 0; i < 5; i++) {
@@ -61,6 +62,7 @@ char *generate(int mask) { //0 name, 1 lname, 2sname
     }
     return (res);
 }
+
 
 void prStr(med arr) {
     printf("%s, %s %.1s. -- %ld\n", 
