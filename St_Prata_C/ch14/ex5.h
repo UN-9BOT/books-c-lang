@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define CSIZE 4
-
 
 typedef struct Name {
     char *nm;

@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <time.h>
 #include <time.h> 
-#include <unistd.h> // TODO:
+#include <unistd.h> // TODO: open this file
+                    
 char *generate(int mask);
 
 typedef struct Bio bio;
@@ -20,7 +22,6 @@ struct Med {
 };
 
 int main(void) {
-    sleep(10);
     med *arr = malloc(sizeof(med) * 5);
     if (arr != NULL) {
         for (int i = 0; i < 5; i++) {
@@ -33,6 +34,7 @@ int main(void) {
         for (int i = 0; i < 5; i++) {
             prStr(arr[i]);
         }
+        
 
         for (int i = 0; i < 5; i++) {
             free(arr[i].info.name);
@@ -71,3 +73,5 @@ void prStr(med arr) {
         arr.info.sname,
         arr.socInt);
 }
+
+
