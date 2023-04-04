@@ -1,0 +1,7 @@
+1   Jessi   Oklan   5   3   1   1
+2   Maha    Sendon  10  5   2   6
+3   Kenk    Olman   0   4   2   2
+4   Ranam   Delon   6   2   1   0
+5   John    Wick    30  30  10  10
+6   Ondf    Dqwe    4   2   1   1
+7   Lenni   Kilk    7   7   7   7
