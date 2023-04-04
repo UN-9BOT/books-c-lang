@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 
 typedef struct human {
     int id;
@@ -12,16 +13,16 @@ typedef struct human {
 } t_hum;
 
 char *readPath(int *flag);
-void readF(t_hum *arr, char *path);
+void readF(t_hum **arr, char *path);
 void printRes(t_hum *arr);
 void freeAlloc(t_hum *arr);
 
 int main(void) {
     int flag = 0; // for error
-    t_hum *arr = malloc(sizeof(t_hum) * 10);
     char *path = readPath(&flag);
     if (!flag) {
-        readF(arr, path);
+        t_hum *arr = calloc(1, sizeof(t_hum));
+        readF(&arr, path);
         printRes(arr);
         freeAlloc(arr);
     }
@@ -30,38 +31,34 @@ int main(void) {
 }
 
 char *readPath(int *flag) {
-    FILE *fp;
-    char *path = malloc(sizeof(char));
+    FILE *fp = NULL;
+    char *path = calloc(1, sizeof(char));
     printf("Input path: ");
     char c;
     for (int i = 0; (c = getchar()) != '\n'; i++) {
         path[i] = c;
-        path = realloc(path, i + 2);
+        path = realloc(path, sizeof(char) * (i + 2));
     }
-    t_hum trash;
 
     if ((fp = fopen(path, "r")) == NULL) {
+        printf("read");
         *flag = 1;
-    } else {
-        fread(&trash, sizeof(t_hum), 1, fp);
-        if (trash.name == NULL) {
-            *flag = 1;
-        }
+    } 
+    if (!*flag) {
+        fclose(fp);
     }
-    fclose(fp);
     return (path);
 }
 
-void readF(t_hum *arr, char *path) {
+void readF(t_hum **arr, char *path) {
     FILE *fp;
     fp = fopen(path, "r");
-    
     for(int i = 0; i < 7; i++) {
-        arr[i].name = malloc(sizeof(char) * 20);
-        arr[i].sname = malloc(sizeof(char) * 20);
+        (*arr)[i].name = malloc(sizeof(char) * 20);
+        (*arr)[i].sname = malloc(sizeof(char) * 20);
         fscanf(fp, "%d\t%s\t%s\t%d\t%d\t%d\t%d", 
-                &arr[i].id, arr[i].name, arr[i].sname, &arr[i].d1, &arr[i].d2, &arr[i].d3, &arr[i].d4);
-        /* arr = realloc(arr, sizeof(t_hum) * (i + 2)); */
+                &(*arr)[i].id, (*arr)[i].name, (*arr)[i].sname, &(*arr)[i].d1, &(*arr)[i].d2, &(*arr)[i].d3, &(*arr)[i].d4);
+        *arr = (t_hum *)realloc((*arr), sizeof(t_hum) * (i + 2));
     }
 
     fclose(fp);
